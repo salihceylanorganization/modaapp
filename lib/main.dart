@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'detay.dart';
+
 void main() {
   runApp(ModaApp());
 }
@@ -25,10 +27,26 @@ class AnaSayfa extends StatefulWidget {
   _AnaSayfaState createState() => _AnaSayfaState();
 }
 
-class _AnaSayfaState extends State<AnaSayfa> {
+class _AnaSayfaState extends State<AnaSayfa>
+    with SingleTickerProviderStateMixin {
+  TabController tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: 4, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    tabController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        bottomNavigationBar: altNavigasyonMenu(),
         appBar: AppBar(
           centerTitle: true,
           backgroundColor: Colors.transparent,
@@ -170,14 +188,30 @@ class _AnaSayfaState extends State<AnaSayfa> {
                       ),
                       Row(
                         children: <Widget>[
-                          Container(
-                            height: 230,
-                            width: (MediaQuery.of(context).size.width - 50) / 2,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: DecorationImage(
-                                  image: AssetImage("assets/modelgrid1.jpeg"),
-                                  fit: BoxFit.fill),
+                          InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      Detay(imgPath: "assets/modelgrid1.jpeg"),
+                                ),
+                              );
+                            },
+                            child: Hero(
+                              tag: "assets/modelgrid1.jpeg",
+                              child: Container(
+                                height: 230,
+                                width:
+                                    (MediaQuery.of(context).size.width - 50) /
+                                        2,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                      image:
+                                          AssetImage("assets/modelgrid1.jpeg"),
+                                      fit: BoxFit.fill),
+                                ),
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -185,33 +219,59 @@ class _AnaSayfaState extends State<AnaSayfa> {
                           ),
                           Column(
                             children: <Widget>[
-                              Container(
-                                height: 110,
-                                width:
-                                    (MediaQuery.of(context).size.width - 100) /
+                              InkWell(
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) => Detay(
+                                          imgPath: "assets/modelgrid2.jpeg"),
+                                    ),
+                                  );
+                                },
+                                child: Hero(
+                                  tag: "assets/modelgrid2.jpeg",
+                                  child: Container(
+                                    height: 110,
+                                    width: (MediaQuery.of(context).size.width -
+                                            100) /
                                         2,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  image: DecorationImage(
-                                      image:
-                                          AssetImage("assets/modelgrid2.jpeg"),
-                                      fit: BoxFit.cover),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              "assets/modelgrid2.jpeg"),
+                                          fit: BoxFit.cover),
+                                    ),
+                                  ),
                                 ),
                               ),
                               SizedBox(
                                 height: 10,
                               ),
-                              Container(
-                                height: 110,
-                                width:
-                                    (MediaQuery.of(context).size.width - 100) /
+                              InkWell(
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) => Detay(
+                                          imgPath: "assets/modelgrid3.jpeg"),
+                                    ),
+                                  );
+                                },
+                                child: Hero(
+                                  tag: "assets/modelgrid3.jpeg",
+                                  child: Container(
+                                    height: 110,
+                                    width: (MediaQuery.of(context).size.width -
+                                            100) /
                                         2,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  image: DecorationImage(
-                                      image:
-                                          AssetImage("assets/modelgrid3.jpeg"),
-                                      fit: BoxFit.cover),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              "assets/modelgrid3.jpeg"),
+                                          fit: BoxFit.cover),
+                                    ),
+                                  ),
                                 ),
                               ),
                             ],
@@ -340,6 +400,45 @@ class _AnaSayfaState extends State<AnaSayfa> {
           ),
         ),
       ],
+    );
+  }
+
+  Widget altNavigasyonMenu() {
+    return Material(
+      color: Colors.white,
+      child: TabBar(
+        controller: tabController,
+        tabs: [
+          Tab(
+            icon: Icon(
+              Icons.more,
+              color: Colors.grey,
+              size: 36,
+            ),
+          ),
+          Tab(
+            icon: Icon(
+              Icons.play_arrow,
+              color: Colors.grey,
+              size: 36,
+            ),
+          ),
+          Tab(
+            icon: Icon(
+              Icons.navigation,
+              color: Colors.grey,
+              size: 36,
+            ),
+          ),
+          Tab(
+            icon: Icon(
+              Icons.supervised_user_circle,
+              color: Colors.grey,
+              size: 36,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
