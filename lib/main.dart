@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -55,9 +56,9 @@ class _AnaSayfaState extends State<AnaSayfa> {
         body: ListView(
           children: <Widget>[
             Container(
-              padding: EdgeInsets.all(10),
-              color: Colors.blueAccent.shade100,
-              height: 115,
+              padding: EdgeInsets.all(5),
+              //color: Colors.blueAccent.shade100,
+              height: 140,
               width: double.infinity,
               child: ListView(
                   padding: EdgeInsets.only(top: 10, bottom: 10),
@@ -65,8 +66,224 @@ class _AnaSayfaState extends State<AnaSayfa> {
                   children: <Widget>[
                     yatayListEleman(
                         "assets/model1.jpeg", "assets/chanellogo.jpg"),
-
+                    SizedBox(width: 10),
+                    yatayListEleman(
+                        "assets/model2.jpeg", "assets/louisvuitton.jpg"),
+                    SizedBox(width: 10),
+                    yatayListEleman(
+                        "assets/model3.jpeg", "assets/chloelogo.png"),
+                    SizedBox(width: 10),
+                    yatayListEleman(
+                        "assets/model1.jpeg", "assets/chanellogo.jpg"),
+                    SizedBox(width: 10),
+                    yatayListEleman(
+                        "assets/model2.jpeg", "assets/louisvuitton.jpg"),
+                    SizedBox(width: 10),
+                    yatayListEleman(
+                        "assets/model3.jpeg", "assets/chloelogo.png"),
+                    SizedBox(width: 10),
                   ]),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Material(
+                borderRadius: BorderRadius.circular(16),
+                elevation: 11,
+                //color: Colors.blue.shade200,
+                child: Container(
+                  height: 570,
+                  width: double.infinity,
+                  padding: EdgeInsets.all(16),
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              image: DecorationImage(
+                                  image: AssetImage("assets/model1.jpeg"),
+                                  fit: BoxFit.cover),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Container(
+                            height: 75,
+                            width: MediaQuery.of(context).size.width - 180,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  "Daisy",
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                    fontFamily: 'Montserrat',
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 3,
+                                ),
+                                Text(
+                                  "34 dk. Önce",
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontFamily: 'Montserrat',
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          IconButton(
+                            icon: Icon(
+                              Icons.more_vert,
+                              color: Colors.grey,
+                              size: 25,
+                            ),
+                            onPressed: () {
+                              debugPrint("Daisy");
+                            },
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "       Bu bir moda sitesi. Bu bir moda sitesi.Bu bir moda sitesi.Bu bir moda sitesi.Bu bir moda sitesi.Bu bir moda sitesi.Bu bir moda sitesi.Bu bir moda sitesi.",
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 14,
+                          fontFamily: 'Montserrat',
+                        ),
+                        textAlign: TextAlign.justify,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Container(
+                            height: 230,
+                            width: (MediaQuery.of(context).size.width - 50) / 2,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                  image: AssetImage("assets/modelgrid1.jpeg"),
+                                  fit: BoxFit.fill),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            children: <Widget>[
+                              Container(
+                                height: 110,
+                                width:
+                                    (MediaQuery.of(context).size.width - 100) /
+                                        2,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                      image:
+                                          AssetImage("assets/modelgrid2.jpeg"),
+                                      fit: BoxFit.cover),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Container(
+                                height: 110,
+                                width:
+                                    (MediaQuery.of(context).size.width - 100) /
+                                        2,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                      image:
+                                          AssetImage("assets/modelgrid3.jpeg"),
+                                      fit: BoxFit.cover),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Chip(
+                            label: Text(
+                              "# Louis Vutton",
+                              style: TextStyle(
+                                fontFamily: 'Montserrat',
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Chip(
+                            label: Text(
+                              "# Chloe",
+                              style: TextStyle(
+                                fontFamily: 'Montserrat',
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Divider(),
+                      Row(
+                        children: <Widget>[
+                          IconButton(icon: Icon(Icons.reply), iconSize: 35),
+                          SizedBox(width: 5),
+                          Text("17k",
+                              style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  color: Colors.grey)),
+                          SizedBox(width: 5),
+                          IconButton(icon: Icon(Icons.comment), iconSize: 35),
+                          SizedBox(width: 5),
+                          Text("325",
+                              style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  color: Colors.grey)),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width - 315,
+                          ),
+                          IconButton(
+                            icon: Icon(
+                              Icons.favorite,
+                              color: Colors.red,
+                            ),
+                            iconSize: 35,
+                          ),
+                          SizedBox(width: 5),
+                          Text("Like",
+                              style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  color: Colors.grey)),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
           ],
         ));
@@ -74,22 +291,54 @@ class _AnaSayfaState extends State<AnaSayfa> {
 
   Widget yatayListEleman(imagePath, logoPath) {
     return Column(
-
       children: <Widget>[
         Stack(
-
           children: <Widget>[
-            Container(margin: EdgeInsets.only(left: 10),
+            Container(
+              margin: EdgeInsets.only(left: 10),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(45),
                 image: DecorationImage(
                     image: AssetImage(imagePath), fit: BoxFit.cover),
               ),
               height: 75,
               width: 75,
             ),
+            Positioned(
+              top: 50,
+              left: 60,
+              child: Container(
+                height: 25,
+                width: 25,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  image: DecorationImage(
+                    image: AssetImage(logoPath),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
           ],
-        )
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        Container(
+          width: 75,
+          height: 30,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Colors.brown,
+          ),
+          child: Center(
+            child: Text("Follow",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                )),
+          ),
+        ),
       ],
     );
   }
